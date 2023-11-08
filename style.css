@@ -1,9 +1,19 @@
+/* 
+File: style.css
+GUI Assignment: Creating an Interactive Dynamic Table 
+Michael Chagnon, UMass Lowell Computer Science,
+michael_chagnon@student.uml.edu
+Copyright (c) 2021 by Michael. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+Created by MC on November 7, 2023
+Description: A website that will dynamicallly create a multiplication table 
+with row and column values between -50 and 50.
+*/
 body{
     background-color: #e1b382;
 }
 
 form{
-/* text-align: center; */
     margin-top: 50px;
 }
 
@@ -81,7 +91,7 @@ th{
     font-weight: bold;
     border: 2px solid;
     border-color: #000000;
-    background-color: #bc9272;
+    background-color: #ef8c2f;
     color: #2d545e;
 
     position: sticky;
@@ -89,7 +99,12 @@ th{
     left: 0;
 }
 
+td:nth-child(odd) {
+    background-color: #c78444;
+    color: #2d545e;
+  }
+
 p{
-    width: 200px;
+    width: 210px;
     color: red;
 }

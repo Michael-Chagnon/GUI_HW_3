@@ -1,3 +1,14 @@
+/* 
+File: script.js
+GUI Assignment: Creating an Interactive Dynamic Table 
+Michael Chagnon, UMass Lowell Computer Science,
+michael_chagnon@student.uml.edu
+Copyright (c) 2021 by Michael. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+Created by MC on November 7, 2023
+Description: A website that will dynamicallly create a multiplication table 
+with row and column values between -50 and 50.
+*/
 document.querySelector("form").addEventListener("submit", function(e){
     e.preventDefault();
 
@@ -26,11 +37,23 @@ document.querySelector("form").addEventListener("submit", function(e){
         errorString = "Minimum rows can't be greater than max rows";
         error = 1;
     } else if(minCol > maxCol){
-        errorString = "Minimum rows can't be greater than max rows"
+        errorString = "Minimum columns can't be greater than max columns"
         error = 1;
     } else if(isNaN(minCol) || isNaN(maxCol) || isNaN(minRow) || isNaN(maxRow)){
         errorString = "Entries must be an integer value"
         error = 1;
+    } else if(document.getElementById("minCol").value === ""){
+        errorString = "Minimum column left blank. All empty fields will be set to 0.";
+        error = 2;
+    }  else if(document.getElementById("maxCol").value === ""){
+        errorString = "Maximum column left blank. All empty fields will be set to 0.";
+        error = 2;
+    } else if(document.getElementById("minRow").value === ""){
+        errorString = "Minimum row left blank. All empty fields will be set to 0.";
+        error = 2;
+    } else if(document.getElementById("maxRow").value === ""){
+        errorString = "Maximum row left blank. All empty fields will be set to 0.";
+        error = 2;
     }
 
 
@@ -77,6 +100,9 @@ document.querySelector("form").addEventListener("submit", function(e){
         
         tbl.appendChild(tblBody);
         document.body.appendChild(tbl);
+    }
+    if(error === 2){
+        errorMessage.textContent = errorString;
     }
 
 });
