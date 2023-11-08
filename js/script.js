@@ -12,15 +12,15 @@ with row and column values between -50 and 50.
 document.querySelector("form").addEventListener("submit", function(e){
     e.preventDefault();
 
-    var minCol = Number(document.getElementById("minCol").value);
-    var maxCol = Number(document.getElementById("maxCol").value);
+    var minCol = Number(document.getElementById("minCol").value); // takes inputs from text box in HTML and
+    var maxCol = Number(document.getElementById("maxCol").value); // assigns it to a JS variable as a Number
     var minRow = Number(document.getElementById("minRow").value);
     var maxRow = Number(document.getElementById("maxRow").value);
-    const errorMessage = document.querySelector("#errorMessage");
-    var errorString = "";
-    var error = 0;
+    const errorMessage = document.querySelector("#errorMessage"); // variable to display error messages to HTML
+    var errorString = ""; // stores error message before being displayed in HTML
+    var error = 0; // used to keep track of type of error to decide path
 
-
+    // Error case handling. Assigns specific error message and type of error with either 1 or 2.
     if(minCol < -50 || minCol > 50){
         errorString = "Minimum columns must be between -50 and 50";
         error = 1;
@@ -57,37 +57,36 @@ document.querySelector("form").addEventListener("submit", function(e){
     }
 
 
-    const tbl = document.createElement("table");
+    const tbl = document.createElement("table"); // creates table element for use to display table
     const tblBody = document.getElementById("table");
 
-    if(error === 1){
+    if(error === 1){ // if any error has occured display the message and don't update the table
         errorMessage.textContent = errorString;
     } else {
-        tblBody.innerHTML="";
-        errorMessage.textContent = "";
+        tblBody.innerHTML=""; // clears table
+        errorMessage.textContent = ""; // clears error messages
         for (let i = minRow; i < maxRow + 2; i++) {
             const row = document.createElement("tr");
 
-            if(i === minRow){
+            if(i === minRow){ // if we are creating the first row the first element will be a 'x'
                 const cell = document.createElement("th");
                 const cellText = document.createTextNode('x');
                 cell.appendChild(cellText);
                 row.appendChild(cell);
-            } else {
+            } else { // otherwise we start by writing the first appropriate column digit
                 const cell = document.createElement("th");
                 const cellText = document.createTextNode(i-1);
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
-            
         
-            for (let j = minCol; j < maxCol + 1; j++) {
-                if (i === minRow){
+            for (let j = minCol; j < maxCol + 1; j++) { // creates the rows
+                if (i === minRow){ // if we are writing the first row use th and write just the row values
                     const cell = document.createElement("th");
                     const cellText = document.createTextNode(j);
                     cell.appendChild(cellText);
                     row.appendChild(cell);
-                } else {
+                } else { // otherwise write row with column digit multiplied by row
                     const cell = document.createElement("td");
                     const cellText = document.createTextNode((i-1)*j);
                     cell.appendChild(cellText);
@@ -101,7 +100,7 @@ document.querySelector("form").addEventListener("submit", function(e){
         tbl.appendChild(tblBody);
         document.body.appendChild(tbl);
     }
-    if(error === 2){
+    if(error === 2){ // case where no input is entered and is assumed to be 0 but still displays message
         errorMessage.textContent = errorString;
     }
 
