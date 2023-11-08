@@ -1,0 +1,95 @@
+body{
+    background-color: #e1b382;
+}
+
+form{
+/* text-align: center; */
+    margin-top: 50px;
+}
+
+h1{
+    color: #2d545e;
+    background-color: #c89666;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    padding: 10px;
+    letter-spacing: 5px;
+}
+
+input{
+    font-family:'Lucida Sans', Geneva, Verdana, sans-serif;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 3px;
+    background-color: #c89666;
+}
+
+::placeholder{
+    color: #2d545e;
+    font-weight: bold;
+}
+
+label{
+    font-family:'Lucida Sans', Geneva, Verdana, sans-serif;
+
+}
+
+button{
+    color: #2d545e;
+    background-color: #c89666;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+
+#table{
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 500px;
+    max-width: 1000px;
+}
+
+table{
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -200px;
+    border: 2px solid;
+    background-color: #000000;
+}
+
+td{
+    text-align: center;
+    width: 150px;
+    font-size: larger;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #000000;
+    background-color: #c89666;
+    color: #2d545e;
+}
+
+tr{
+    background-color: aliceblue;
+}
+
+th{
+    width: 150px;
+    min-width: 50px;
+    font-size: larger;
+    font-weight: bold;
+    border: 2px solid;
+    border-color: #000000;
+    background-color: #bc9272;
+    color: #2d545e;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+p{
+    width: 200px;
+    color: red;
+}
