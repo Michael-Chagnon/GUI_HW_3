@@ -81,7 +81,6 @@ td{ /*Style for cells in table*/
     color: #2d545e;
 }
 
-
 th{ /*Style for header row and column cells in table*/
     font-family:'Lucida Sans', Geneva, Verdana, sans-serif;
     width: 150px;
@@ -93,7 +92,7 @@ th{ /*Style for header row and column cells in table*/
     background-color: #ef8c2f;
     color: #2d545e;
 
-    position: sticky;
+    position: sticky; /*This is used to get the headers to be fixed*/
     top: 0;
     left: 0;
 }
